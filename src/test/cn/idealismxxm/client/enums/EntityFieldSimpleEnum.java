@@ -1,4 +1,4 @@
-package cn.idealismxxm.enums;
+package cn.idealismxxm.client.enums;
 
 /**
  * 实体字段简化枚举类（用于暴露）
@@ -6,7 +6,7 @@ package cn.idealismxxm.enums;
  * @author idealism
  * @date 2018/9/5
  */
-public enum EntityFieldSimpleEnum {
+public enum EntityFieldSimpleEnum implements FieldEnumInterface {
     ;
 
     /**

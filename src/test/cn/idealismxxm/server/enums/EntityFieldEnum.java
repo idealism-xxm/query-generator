@@ -1,6 +1,7 @@
-package cn.idealismxxm.enums;
+package cn.idealismxxm.server.enums;
 
-import cn.idealismxxm.common.checker.FieldChecker;
+import cn.idealismxxm.client.enums.FieldEnumInterface;
+import cn.idealismxxm.server.checker.FieldChecker;
 
 /**
  * 实体字段枚举类
@@ -8,7 +9,7 @@ import cn.idealismxxm.common.checker.FieldChecker;
  * @author idealism
  * @date 2018/9/5
  */
-public enum EntityFieldEnum {
+public enum EntityFieldEnum implements FieldEnumInterface {
     ;
 
     /**

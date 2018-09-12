@@ -1,4 +1,6 @@
-package cn.idealismxxm.common.query;
+package cn.idealismxxm.client.common.query;
+
+import cn.idealismxxm.client.enums.FieldEnumInterface;
 
 /**
  * 字段排序参数
@@ -6,7 +8,7 @@ package cn.idealismxxm.common.query;
  * @author idealism
  * @date 2018/9/9
  */
-public class FieldSort {
+public class FieldSort<T extends FieldEnumInterface> {
     /**
      * 排序顺序枚举
      */
@@ -65,8 +67,8 @@ public class FieldSort {
      */
     private Integer sortOrder;
 
-    public FieldSort(int field, SortOrderEnum sortOrderEnum) {
-        this.field = field;
+    public FieldSort(FieldEnumInterface fieldEnum, SortOrderEnum sortOrderEnum) {
+        this.field = fieldEnum.getCode();
         this.sortOrder = sortOrderEnum.getCode();
     }
 
@@ -74,7 +76,15 @@ public class FieldSort {
         return field;
     }
 
+    public void setField(Integer field) {
+        this.field = field;
+    }
+
     public Integer getSortOrder() {
         return sortOrder;
+    }
+
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
     }
 }

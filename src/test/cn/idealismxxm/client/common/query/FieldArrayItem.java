@@ -1,4 +1,6 @@
-package cn.idealismxxm.common.query;
+package cn.idealismxxm.client.common.query;
+
+import cn.idealismxxm.client.enums.FieldEnumInterface;
 
 /**
  * 字段 集合项
@@ -6,7 +8,7 @@ package cn.idealismxxm.common.query;
  * @author idealism
  * @date 2018/9/5
  */
-public class FieldArrayItem {
+public class FieldArrayItem<T extends FieldEnumInterface> {
     /**
      * 字段标识
      */
@@ -17,36 +19,34 @@ public class FieldArrayItem {
      */
     private Object[] arrayValue;
 
-    private FieldArrayItem() {
-        throw new RuntimeException("FieldArrayItem 不能调用默认构造方法");
+    private FieldArrayItem() { }
+
+    public FieldArrayItem(T fieldEnum, int... value) {
+        this(fieldEnum, toObjectArray(value));
     }
 
-    public FieldArrayItem(int field, int... value) {
-        this(field, toObjectArray(value));
+    public FieldArrayItem(T fieldEnum, long... value) {
+        this(fieldEnum, toObjectArray(value));
     }
 
-    public FieldArrayItem(int field, long... value) {
-        this(field, toObjectArray(value));
+    public FieldArrayItem(T fieldEnum, float... value) {
+        this(fieldEnum, toObjectArray(value));
     }
 
-    public FieldArrayItem(int field, float... value) {
-        this(field, toObjectArray(value));
+    public FieldArrayItem(T fieldEnum, double... value) {
+        this(fieldEnum, toObjectArray(value));
     }
 
-    public FieldArrayItem(int field, double... value) {
-        this(field, toObjectArray(value));
+    public FieldArrayItem(T fieldEnum, String... value) {
+        this(fieldEnum, (Object[]) value);
     }
 
-    public FieldArrayItem(int field, String... value) {
-        this(field, (Object[]) value);
+    public FieldArrayItem(T fieldEnum, java.util.Date... value) {
+        this(fieldEnum, (Object[]) value);
     }
 
-    public FieldArrayItem(int field, java.util.Date... value) {
-        this(field, (Object[]) value);
-    }
-
-    private FieldArrayItem(int field, Object[] value) {
-        this.field = field;
+    private FieldArrayItem(T fieldEnum, Object[] value) {
+        this.field = fieldEnum.getCode();
         this.arrayValue = value;
     }
 
@@ -128,5 +128,21 @@ public class FieldArrayItem {
             result[i] = value[i];
         }
         return result;
+    }
+
+    public Integer getField() {
+        return field;
+    }
+
+    public void setField(Integer field) {
+        this.field = field;
+    }
+
+    public Object[] getArrayValue() {
+        return arrayValue;
+    }
+
+    public void setArrayValue(Object[] arrayValue) {
+        this.arrayValue = arrayValue;
     }
 }

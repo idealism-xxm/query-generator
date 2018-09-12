@@ -1,6 +1,4 @@
-package cn.idealismxxm.checker;
-
-import cn.idealismxxm.common.checker.AbstractFieldChecker;
+package cn.idealismxxm.server.checker;
 
 /**
  * 实体字段 Id 校验器

@@ -1,4 +1,4 @@
-package cn.idealismxxm.common.checker;
+package cn.idealismxxm.server.checker;
 
 /**
  * 字段校验器
