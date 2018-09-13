@@ -2,6 +2,7 @@ package cn.idealismxxm.client.common.query;
 
 import cn.idealismxxm.client.enums.FieldEnumInterface;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -115,4 +116,110 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
+
+    public void equal(T fieldEnum, int value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, long value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, float value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, double value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, boolean value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, String value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void equal(T fieldEnum, Date value) {
+        this.equalClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, int value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, long value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, float value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, double value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, boolean value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, String value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void notEqual(T fieldEnum, Date value) {
+        this.notEqualClauses.add(new FieldUnitItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, int... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, long... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, float... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, double... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, String... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void in(T fieldEnum, Date... value) {
+        this.inClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, int... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, long... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, float... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, double... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, String... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    public void notIn(T fieldEnum, Date... value) {
+        this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
+    }
+
+    // TODO FieldArrayItem 不好实现（可再增加一个类专门生成条件）
 }

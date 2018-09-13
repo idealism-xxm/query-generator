@@ -67,7 +67,7 @@ public class FieldSort<T extends FieldEnumInterface> {
      */
     private Integer sortOrder;
 
-    public FieldSort(FieldEnumInterface fieldEnum, SortOrderEnum sortOrderEnum) {
+    public FieldSort(T fieldEnum, SortOrderEnum sortOrderEnum) {
         this.field = fieldEnum.getCode();
         this.sortOrder = sortOrderEnum.getCode();
     }
