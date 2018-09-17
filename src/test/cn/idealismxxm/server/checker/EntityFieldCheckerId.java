@@ -19,7 +19,7 @@ public class EntityFieldCheckerId extends AbstractFieldChecker {
             return false;
         }
 
-        // 抓成真实类型，开始进行 id 字段的定制校验
+        // 转成真实类型，开始进行 id 字段的定制校验
         Integer id = (Integer) value;
 
         // 2. 定制校验

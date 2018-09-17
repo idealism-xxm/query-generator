@@ -21,7 +21,12 @@ public class FieldUnitItem<T extends FieldEnumInterface> {
      */
     private Object unitValue;
 
-    private FieldUnitItem() { }
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldUnitItem#FieldUnitItem(FieldEnumInterface, int)} etc.
+     */
+    @Deprecated
+    public FieldUnitItem() { }
 
     public FieldUnitItem(T fieldEnum, int value) {
         this(fieldEnum, (Object) value);
@@ -60,6 +65,11 @@ public class FieldUnitItem<T extends FieldEnumInterface> {
         return field;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldUnitItem#FieldUnitItem(FieldEnumInterface, int)} etc.
+     */
+    @Deprecated
     public void setField(Integer field) {
         this.field = field;
     }
@@ -68,6 +78,11 @@ public class FieldUnitItem<T extends FieldEnumInterface> {
         return unitValue;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldUnitItem#FieldUnitItem(FieldEnumInterface, int)} etc.
+     */
+    @Deprecated
     public void setUnitValue(Object unitValue) {
         this.unitValue = unitValue;
     }

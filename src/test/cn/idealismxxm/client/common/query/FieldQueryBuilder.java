@@ -49,6 +49,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return equalClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#equal(FieldEnumInterface, int)} etc.
+     */
+    @Deprecated
     public void setEqualClauses(List<FieldUnitItem<T>> equalClauses) {
         this.equalClauses = equalClauses;
     }
@@ -57,6 +62,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return notEqualClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#notEqual(FieldEnumInterface, int)} etc.
+     */
+    @Deprecated
     public void setNotEqualClauses(List<FieldUnitItem<T>> notEqualClauses) {
         this.notEqualClauses = notEqualClauses;
     }
@@ -65,6 +75,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return inClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#in(FieldEnumInterface, int...)} etc.
+     */
+    @Deprecated
     public void setInClauses(List<FieldArrayItem<T>> inClauses) {
         this.inClauses = inClauses;
     }
@@ -73,6 +88,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return notInClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#notIn(FieldEnumInterface, int...)} etc.
+     */
+    @Deprecated
     public void setNotInClauses(List<FieldArrayItem<T>> notInClauses) {
         this.notInClauses = notInClauses;
     }
@@ -81,6 +101,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return betweenClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#between(FieldEnumInterface, int, int)} etc.
+     */
+    @Deprecated
     public void setBetweenClauses(List<FieldRangeItem<T>> betweenClauses) {
         this.betweenClauses = betweenClauses;
     }
@@ -89,6 +114,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return notBetweenClauses;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#notBetween(FieldEnumInterface, int, int)} etc.
+     */
+    @Deprecated
     public void setNotBetweenClauses(List<FieldRangeItem<T>> notBetweenClauses) {
         this.notBetweenClauses = notBetweenClauses;
     }
@@ -97,6 +127,11 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         return sorts;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldQueryBuilder#sort(FieldEnumInterface, FieldSort.SortOrderEnum)}
+     */
+    @Deprecated
     public void setSorts(List<FieldSort<T>> sorts) {
         this.sorts = sorts;
     }
@@ -221,5 +256,79 @@ public class FieldQueryBuilder<T extends FieldEnumInterface> {
         this.notInClauses.add(new FieldArrayItem<>(fieldEnum, value));
     }
 
-    // TODO FieldArrayItem 不好实现（可再增加一个类专门生成条件）
+    public FieldRangeItem<T> between(T fieldEnum, int lowerValue, int upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> between(T fieldEnum, long lowerValue, long upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> between(T fieldEnum, float lowerValue, float upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> between(T fieldEnum, double lowerValue, double upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> between(T fieldEnum, String lowerValue, String upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> between(T fieldEnum, Date lowerValue, Date upperValue) {
+        FieldRangeItem<T> betweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.betweenClauses.add(betweenClause);
+        return betweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, int lowerValue, int upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, long lowerValue, long upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, float lowerValue, float upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, double lowerValue, double upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, String lowerValue, String upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public FieldRangeItem<T> notBetween(T fieldEnum, Date lowerValue, Date upperValue) {
+        FieldRangeItem<T> notBetweenClause = new FieldRangeItem<>(fieldEnum, lowerValue, upperValue);
+        this.notBetweenClauses.add(notBetweenClause);
+        return notBetweenClause;
+    }
+
+    public void sort(T fieldEnum, FieldSort.SortOrderEnum sortOrderEnum) {
+        this.sorts.add(new FieldSort<>(fieldEnum, sortOrderEnum));
+    }
 }

@@ -34,7 +34,7 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
      */
     private boolean includeUpper = true;
 
-    private FieldRangeItem() { }
+    public FieldRangeItem() { }
 
     public FieldRangeItem(T fieldEnum, int lowerValue, int upperValue) {
         this(fieldEnum, (Object) lowerValue, upperValue);
@@ -66,12 +66,12 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         this.upperValue = upperValue;
     }
 
-    public FieldRangeItem includeLower(boolean includeLower) {
+    public FieldRangeItem<T> includeLower(boolean includeLower) {
         this.includeLower = includeLower;
         return this;
     }
 
-    public FieldRangeItem includeUpper(boolean includeUpper) {
+    public FieldRangeItem<T> includeUpper(boolean includeUpper) {
         this.includeUpper = includeUpper;
         return this;
     }
@@ -80,6 +80,11 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         return field;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldRangeItem#FieldRangeItem(FieldEnumInterface, int, int)} etc.
+     */
+    @Deprecated
     public void setField(Integer field) {
         this.field = field;
     }
@@ -88,6 +93,11 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         return lowerValue;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldRangeItem#FieldRangeItem(FieldEnumInterface, int, int)} etc.
+     */
+    @Deprecated
     public void setLowerValue(Object lowerValue) {
         this.lowerValue = lowerValue;
     }
@@ -96,6 +106,11 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         return upperValue;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldRangeItem#FieldRangeItem(FieldEnumInterface, int, int)} etc.
+     */
+    @Deprecated
     public void setUpperValue(Object upperValue) {
         this.upperValue = upperValue;
     }
@@ -104,6 +119,11 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         return includeLower;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldRangeItem#includeLower(boolean)} etc.
+     */
+    @Deprecated
     public void setIncludeLower(boolean includeLower) {
         this.includeLower = includeLower;
     }
@@ -112,6 +132,11 @@ public class FieldRangeItem<T extends FieldEnumInterface> {
         return includeUpper;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldRangeItem#includeUpper(boolean)} etc.
+     */
+    @Deprecated
     public void setIncludeUpper(boolean includeUpper) {
         this.includeUpper = includeUpper;
     }

@@ -10,6 +10,54 @@ import cn.idealismxxm.client.enums.FieldEnumInterface;
  */
 public class FieldSort<T extends FieldEnumInterface> {
     /**
+     * 字段标识
+     */
+    private Integer field;
+
+    /**
+     * 排序顺序标识
+     */
+    private Integer sortOrder;
+
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldSort#FieldSort(FieldEnumInterface, SortOrderEnum)} etc.
+     */
+    @Deprecated
+    public FieldSort() { }
+
+    public FieldSort(T fieldEnum, SortOrderEnum sortOrderEnum) {
+        this.field = fieldEnum.getCode();
+        this.sortOrder = sortOrderEnum.getCode();
+    }
+
+    public Integer getField() {
+        return field;
+    }
+
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldSort#FieldSort(FieldEnumInterface, SortOrderEnum)} etc.
+     */
+    @Deprecated
+    public void setField(Integer field) {
+        this.field = field;
+    }
+
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
+
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldSort#FieldSort(FieldEnumInterface, SortOrderEnum)} etc.
+     */
+    @Deprecated
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    /**
      * 排序顺序枚举
      */
     public enum SortOrderEnum {
@@ -55,36 +103,5 @@ public class FieldSort<T extends FieldEnumInterface> {
 
             return null;
         }
-    }
-
-    /**
-     * 字段标识
-     */
-    private Integer field;
-
-    /**
-     * 排序顺序标识
-     */
-    private Integer sortOrder;
-
-    public FieldSort(T fieldEnum, SortOrderEnum sortOrderEnum) {
-        this.field = fieldEnum.getCode();
-        this.sortOrder = sortOrderEnum.getCode();
-    }
-
-    public Integer getField() {
-        return field;
-    }
-
-    public void setField(Integer field) {
-        this.field = field;
-    }
-
-    public Integer getSortOrder() {
-        return sortOrder;
-    }
-
-    public void setSortOrder(Integer sortOrder) {
-        this.sortOrder = sortOrder;
     }
 }

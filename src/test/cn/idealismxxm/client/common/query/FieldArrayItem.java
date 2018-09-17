@@ -19,7 +19,12 @@ public class FieldArrayItem<T extends FieldEnumInterface> {
      */
     private Object[] arrayValue;
 
-    private FieldArrayItem() { }
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldArrayItem#FieldArrayItem(FieldEnumInterface, int...)} etc.
+     */
+    @Deprecated
+    public FieldArrayItem() { }
 
     public FieldArrayItem(T fieldEnum, int... value) {
         this(fieldEnum, toObjectArray(value));
@@ -134,6 +139,11 @@ public class FieldArrayItem<T extends FieldEnumInterface> {
         return field;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldArrayItem#FieldArrayItem(FieldEnumInterface, int...)} etc.
+     */
+    @Deprecated
     public void setField(Integer field) {
         this.field = field;
     }
@@ -142,6 +152,11 @@ public class FieldArrayItem<T extends FieldEnumInterface> {
         return arrayValue;
     }
 
+    /**
+     * just for deserialize
+     * @deprecated this method is deprecated, you can use {@link FieldArrayItem#FieldArrayItem(FieldEnumInterface, int...)} etc.
+     */
+    @Deprecated
     public void setArrayValue(Object[] arrayValue) {
         this.arrayValue = arrayValue;
     }
