@@ -13,13 +13,8 @@ public class EntityFieldCheckerId extends AbstractFieldChecker {
     private final Class clazz = Integer.class;
 
     @Override
-    public boolean check(Object value) {
-        // 1. 通用校验
-        if (!super.check(value)) {
-            return false;
-        }
-
-        // 转成真实类型，开始进行 id 字段的定制校验
+    public boolean diyCheck(Object value) {
+        // 1. 转成真实类型，开始进行 id 字段的定制校验
         Integer id = (Integer) value;
 
         // 2. 定制校验
