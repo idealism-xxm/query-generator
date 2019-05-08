@@ -1,6 +1,8 @@
 package cn.idealismxxm.server.enums;
 
 import cn.idealismxxm.client.enums.FieldEnumInterface;
+import cn.idealismxxm.server.checker.EntityFieldCheckerId;
+import cn.idealismxxm.server.checker.EntityFieldCheckerName;
 import cn.idealismxxm.server.checker.FieldChecker;
 
 /**
@@ -10,6 +12,15 @@ import cn.idealismxxm.server.checker.FieldChecker;
  * @date 2018/9/5
  */
 public enum EntityFieldEnum implements FieldEnumInterface {
+    /**
+     * id
+     */
+    ID(1, "id", "id", EntityFieldCheckerId.getInstance()),
+
+    /**
+     * 名称
+     */
+    NAME(2, "name", "名称", EntityFieldCheckerName.getInstance()),
     ;
 
     /**
@@ -39,6 +50,7 @@ public enum EntityFieldEnum implements FieldEnumInterface {
         this.checker = checker;
     }
 
+    @Override
     public Integer getCode() {
         return code;
     }
@@ -47,6 +59,7 @@ public enum EntityFieldEnum implements FieldEnumInterface {
         return name;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }

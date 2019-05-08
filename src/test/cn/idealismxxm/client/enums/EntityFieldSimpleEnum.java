@@ -24,10 +24,12 @@ public enum EntityFieldSimpleEnum implements FieldEnumInterface {
         this.description = description;
     }
 
+    @Override
     public Integer getCode() {
         return code;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }

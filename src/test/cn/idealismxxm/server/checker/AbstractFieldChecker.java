@@ -1,5 +1,7 @@
 package cn.idealismxxm.server.checker;
 
+import cn.idealismxxm.client.enums.FieldEnumInterface;
+
 /**
  * 字段校验器 接口 抽象实现
  *
@@ -9,26 +11,29 @@ package cn.idealismxxm.server.checker;
 public abstract class AbstractFieldChecker implements FieldChecker {
 
     @Override
-    public boolean check(Object value) {
+    public void check(Object value) {
         // 通用校验 和 定制化校验都通过 才算校验通过
         // 子类也可以覆盖 check 方法，可以不进行通用校验
-        return this.commonCheck(value) && this.diyCheck(value);
+        this.commonCheck(value);
+        this.diyCheck(value);
     }
 
     /**
      * 所有类通用校验
      *
      * @param value 字段值
-     * @return true：校验通过；false：校验不通过
      */
-    protected final boolean commonCheck(Object value) {
+    protected final void commonCheck(Object value) {
         // 1. 空值校验
         if (value == null) {
-            return false;
+            throw new IllegalArgumentException(String.format("filed value [%s] must not be null", this.getFieldEnum().getDescription()));
         }
 
         // 2. 类型校验
-        return this.getFieldClass().equals(value.getClass());
+        if (!this.getFieldClass().equals(value.getClass())) {
+            throw new IllegalArgumentException(String.format("filed value [%s] type error, expected: %s, actual: %s",
+                    this.getFieldEnum().getDescription(), this.getFieldClass().getName(), value.getClass().getName()));
+        }
     }
 
 
@@ -36,11 +41,22 @@ public abstract class AbstractFieldChecker implements FieldChecker {
      * 子类定制化校验
      *
      * @param value 字段值
-     * @return true：校验通过；false：校验不通过
      */
-    protected boolean diyCheck(Object value) {
-        return true;
+    protected void diyCheck(Object value) {
+
     }
 
+    /**
+     * 返回待校验字段的真实类型
+     *
+     * @return Class
+     */
     public abstract Class getFieldClass();
+
+    /**
+     * 返回待校验字段的枚举
+     *
+     * @return FieldEnumInterface
+     */
+    public abstract FieldEnumInterface getFieldEnum();
 }
